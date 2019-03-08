@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorBlackOpcaity">#CC000000</color>
+    <color name="color_divider">#f3f3f4</color>
+    <color name="colorDividerLine">#D8D9D8</color>
+    <color name="backgroundGrey">#f0eff5</color>
+    <color name="colorDivider">#D8D9D8</color>
+    <color name="colorDividerDark">#a4a4a4</color>
+    <color name="colorShadow">#66000000</color>
+    <color name="colorErrorActivityText">#939597</color>
+    <color name="colorBtnDisable">#6d6e71</color>
+
+    <!--login related-->
+    <color name="color_btn_login_fb">#4e6cab</color>
+    <color name="color_btn_login_normal">#EBBF2B</color>
+    <color name="color_login_background">#CC000000</color>
+    <color name="color_login_divider">#696969</color>
+    <color name="color_text_dark_grey">#696969</color>
+
+    <!--textcolor-->
+    <color name="color_grey_text">#d3d3d3</color>
+
+    <!--Showcase color-->
+    <color name="color_showcase_valid_bg">#FF0000</color>
+    <color name="color_showcase_text">#FFF</color>
+
+</resources>

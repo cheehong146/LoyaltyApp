@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "852361930225",
+    "firebase_url": "https://loyaltyapp-adc1f.firebaseio.com",
+    "project_id": "loyaltyapp-adc1f",
+    "storage_bucket": "loyaltyapp-adc1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852361930225:android:af3cad82932720a7",
+        "android_client_info": {
+          "package_name": "com.example.itp.loyaltyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852361930225-1q62cpsmqe1l33akola6k4pbo8n17jgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvjcarAE8ML8M8wxBTnYT6g9zuzjtP9nk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
