@@ -6,13 +6,20 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.itp.loyaltyapp.R;
 import com.example.itp.loyaltyapp.base.BaseFragment;
+import com.example.itp.loyaltyapp.databinding.FragmentHomeHeaderBinding;
 
 public class HomeHeaderAdapter extends BaseFragment implements View.OnClickListener{
 
-    
+    FragmentHomeHeaderBinding binding;
+
+    TextView tvUsername, tvPoints;
+    ImageView ivProfilePic;
+    TextView tvHeaderTitle;
 
     @Nullable
     @Override
@@ -21,12 +28,17 @@ public class HomeHeaderAdapter extends BaseFragment implements View.OnClickListe
 
         initComponents();
 
+        //TODO populate data here
+
         return view;
     }
 
     @Override
     public void bindComponents() {
-
+        tvUsername = binding.tvHomeHeaderUsername;
+        tvPoints = binding.tvHomeHeaderPointsVal;
+        tvHeaderTitle = binding.tvHomeHeaderTitle;
+        ivProfilePic = binding.ivHomeHeaderProfilePic;
     }
 
     @Override
