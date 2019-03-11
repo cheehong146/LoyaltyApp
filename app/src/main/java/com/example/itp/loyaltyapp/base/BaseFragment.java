@@ -10,9 +10,9 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
     }
 
+    public abstract void initComponents();
+
     public abstract void bindComponents();
 
     public abstract void setupListener();
-
-    public abstract void initComponents();
 }

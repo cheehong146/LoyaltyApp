@@ -129,4 +129,9 @@ public class LoginActivity extends BaseActivity{
         //TODO pass user data to main
         startNewActivityWithFinish(this, intent);
     }
+
+    @Override
+    public void toolbarSettings() {
+        //Login page, doesn't have toolbar
+    }
 }

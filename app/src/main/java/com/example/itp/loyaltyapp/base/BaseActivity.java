@@ -18,11 +18,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         startActivity(intent);
     }
 
+    public abstract void initComponents();
 
     public abstract void bindComponents();
 
     public abstract void setupListener();
 
-    public abstract void initComponents();
+    public abstract void toolbarSettings();
 
 }

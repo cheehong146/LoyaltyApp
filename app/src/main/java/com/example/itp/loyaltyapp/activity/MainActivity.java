@@ -1,17 +1,22 @@
 package com.example.itp.loyaltyapp.activity;
 
 import android.databinding.DataBindingUtil;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.example.itp.loyaltyapp.R;
-import com.example.itp.loyaltyapp.adapter.ShowcaseViewPagerAdapter;
 import com.example.itp.loyaltyapp.base.BaseActivity;
 import com.example.itp.loyaltyapp.databinding.ActivityMainBinding;
+import com.example.itp.loyaltyapp.fragment.HomeFragment;
 import com.example.itp.loyaltyapp.model.Customer;
 import com.example.itp.loyaltyapp.model.ShowcaseItem;
 
@@ -19,12 +24,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
+    private static final String TAG = "MainActivity";
     ActivityMainBinding binding;
 
-    FrameLayout frameHeader;
-    ViewPager viewpagerShowcase;
-    TabLayout tabDotsShowcase;
+
+
+    FrameLayout frameMain;
     BottomNavigationView navBar;
+
 //TODO VIEW MODEL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,23 +40,33 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         initComponents();
 
-        setupShowcaseDataAdapter();
-
-        setupHeaderDataAdapter();
+        setupHomePage();
     }
 
-    private void setupShowcaseDataAdapter(){
-        ArrayList<ShowcaseItem> dummyData = getDummyData();
+    private void setupHomePage(){
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-        ShowcaseViewPagerAdapter showcaseViewPagerAdapter = new ShowcaseViewPagerAdapter(getSupportFragmentManager(), this, dummyData);
-        viewpagerShowcase.setAdapter(showcaseViewPagerAdapter);
+        HomeFragment homeFragment = HomeFragment.newInstance(getDummyCustomer(), getDummyData());
+        ft.replace(R.id.frame_tab_frame, homeFragment);
+        ft.commit();
     }
 
-    private void setupHeaderDataAdapter(){
-        //TODO setup user
-        Customer customer = new Customer("1", "Lan Chee Hong", "http://blogs.cuit.columbia.edu/asj2122/files/2013/07/profile-894x1024.jpg", "9999");
-
+    private Customer getDummyCustomer (){
+        Customer customer = new Customer("1", "Adam Settler", "https://www.morpht.com/sites/morpht/files/styles/landscape/public/dalibor-matura_1.jpg?itok=gxCAhwAV", "9999");
+        return customer;
     }
+
+//    private void setupHeaderDataAdapter(){
+//        //TODO setup user
+//        Customer customer = getDummyCustomer();
+//
+//        CustomerHeaderFragment homeHeaderFragment = CustomerHeaderFragment.newInstance(customer);
+//
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.frame_home_header, homeHeaderFragment);
+//        fragmentTransaction.commit();
+//
+//    }
 
     private ArrayList<ShowcaseItem> getDummyData(){
         ArrayList<ShowcaseItem> items = new ArrayList<>();
@@ -73,33 +90,59 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void bindComponents() {
-        frameHeader = binding.frameHomeHeader;
-        viewpagerShowcase = binding.viewpagerShowcase;
-        tabDotsShowcase = binding.tabDots;
         navBar = binding.navBar;
 
-        //viewpager and tabDots linkage
-        tabDotsShowcase.setupWithViewPager(viewpagerShowcase, true);
+
     }
 
     @Override
     public void setupListener() {
-        frameHeader.setOnClickListener(this);
-        navBar.setOnClickListener(this);
-        viewpagerShowcase.setOnClickListener(this);
-        tabDotsShowcase.setOnClickListener(this);
+        navBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment fragment;
+                switch (menuItem.getItemId()){
+                    case R.id.menu_item_foodmenu:
+                        return true;
+                    case R.id.menu_item_redeem:
+                        return true;
+                    case R.id.menu_item_voucher:
+                        return true;
+                    case R.id.menu_item_located:
+                        return true;
+                    case R.id.menu_item_setting:
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
     public void initComponents() {
         bindComponents();
         setupListener();
+        toolbarSettings();
     }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
 
+        switch (v.getId()){
+            default:
+                Log.d(TAG, "onClick: " + v.getId());
         }
     }
+
+    @Override
+    public void toolbarSettings() {
+        Toolbar toolbar = binding.toolbarHome;
+        setSupportActionBar(toolbar);
+        //TODO title setting here
+        TextView tvTitle = binding.tvToolbarHomeTitle;
+        tvTitle.setText("Lekkers Cafe");
+
+    }
+
+
 }

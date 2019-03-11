@@ -55,6 +55,9 @@ dependencies {
 
     //facebook login
     implementation 'com.facebook.android:facebook-android-sdk:4.40.0'
+
+    //expandable Textview
+    implementation 'com.borjabravo:readmoretextview:2.1.0'
 }
 
 //google play services

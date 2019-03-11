@@ -102,4 +102,9 @@ public class SplashActivity extends BaseActivity {
     public void onClick(View v) {
 
     }
+
+    @Override
+    public void toolbarSettings() {
+        //doesn't have toolbar for splash page
+    }
 }

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#484A5D</color>
+    <color name="colorPrimaryDark">#363741</color>
     <color name="colorAccent">#D81B60</color>
 
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000</color>
     <color name="colorBlackOpcaity">#CC000000</color>
-    <color name="color_divider">#f3f3f4</color>
-    <color name="colorDividerLine">#D8D9D8</color>
     <color name="backgroundGrey">#f0eff5</color>
     <color name="colorDivider">#D8D9D8</color>
     <color name="colorDividerDark">#a4a4a4</color>
@@ -26,8 +24,13 @@
     <!--textcolor-->
     <color name="color_grey_text">#d3d3d3</color>
 
+    <!--Home page-->
     <!--Showcase color-->
     <color name="color_showcase_valid_bg">#FF0000</color>
     <color name="color_showcase_text">#FFF</color>
+    <color name="color_divider">#6E7385</color>
+
+    <!--app theme text color-->
+    <color name="color_text_white">#FFF</color>
 
 </resources>

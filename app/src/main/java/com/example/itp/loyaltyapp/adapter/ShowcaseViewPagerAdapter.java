@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
+import android.view.View;
 
 import com.example.itp.loyaltyapp.fragment.HomeShowcaseFragment;
 import com.example.itp.loyaltyapp.model.Item;
@@ -12,8 +14,9 @@ import com.example.itp.loyaltyapp.model.ShowcaseItem;
 
 import java.util.List;
 
-public class ShowcaseViewPagerAdapter extends FragmentStatePagerAdapter {
+public class ShowcaseViewPagerAdapter extends FragmentStatePagerAdapter{
 
+    private static final String TAG = "ShowcaseViewPagerAdapter";
     private Context context;
     private List<ShowcaseItem> showcaseItemList;//will contain a list of images that is used to populate the viewpager
 
@@ -23,28 +26,11 @@ public class ShowcaseViewPagerAdapter extends FragmentStatePagerAdapter {
         this.showcaseItemList = showcaseItemList;
     }
 
-//    @NonNull
-//    @Override
-//    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-////        ImageView imageView = new ImageView(context);
-////        Glide
-////                .with(context)
-////                .asBitmap()
-////                .load(showcaseItemList.get(position).getImgUrl())
-////                .transform(new CenterCrop(), new RoundedCorners(32))
-////                .into(imageView);
-////        container.addView(imageView);
-////        return  imageView;
-//        LayoutInflater inflater = LayoutInflater.from(context);
-//        View view  = inflater.inflate(R.layout.fragment_home_showcase, container, false);
-//        return view;
-//    }
-
     @Override
     public Fragment getItem(int i) {
         HomeShowcaseFragment fragment = new HomeShowcaseFragment();
         Bundle bundle = new Bundle();
-        bundle.putParcelable("item", showcaseItemList.get(i));
+        bundle.putParcelable("showcaseItem", showcaseItemList.get(i));
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -54,3 +40,4 @@ public class ShowcaseViewPagerAdapter extends FragmentStatePagerAdapter {
         return showcaseItemList.size();
     }
 }
+
